@@ -1,4 +1,3 @@
-
 import PageHeader from '../components/PageHeader';
 import { Code, Users, Rocket, Check } from 'lucide-react';
 
@@ -11,6 +10,27 @@ const About = () => {
       />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* Team Section */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold text-center mb-12">Meet Our Team</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {team.map((member, index) => (
+              <div key={index} className="text-center">
+                <div className="relative w-48 h-48 mx-auto mb-4">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover rounded-full border-4 border-primary"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-2">{member.role}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-500">{member.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Values Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {values.map((value, index) => (
@@ -58,6 +78,33 @@ const About = () => {
     </div>
   );
 };
+
+const team = [
+  {
+    name: "Sarah Johnson",
+    role: "Lead Developer",
+    description: "Full-stack developer with 8+ years of experience in web technologies.",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+  },
+  {
+    name: "Michael Chen",
+    role: "UI/UX Designer",
+    description: "Creative designer passionate about creating beautiful user experiences.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+  },
+  {
+    name: "Emily Rodriguez",
+    role: "Backend Developer",
+    description: "Database expert with a strong background in system architecture.",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80"
+  },
+  {
+    name: "David Kim",
+    role: "Frontend Developer",
+    description: "React specialist focused on creating responsive and accessible interfaces.",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+  }
+];
 
 const values = [
   {
